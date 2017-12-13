@@ -23,7 +23,7 @@ Date: $date\n\
 Location: $location\n\
 Old IP: $oldwanip\n\
 New IP: $curwanip\n\n\
-Please update site-to-site VPN settings accordingly..."
+Please update site-to-site VPN settings accordingly."
 
 subject="pfSense Public WAN IP Change Alert"
 
@@ -32,6 +32,6 @@ if [ $curwanip = $oldwanip ]; then
   exit # Nothing to do
 else
   # Send the email notification then update old IP
-  echo "$message" | /usr/local/bin/mail.php -s="$subject"
+  printf "$message" | /usr/local/bin/mail.php -s="$subject"
   echo $curwanip > /tmp/old_wan_ip
 fi
