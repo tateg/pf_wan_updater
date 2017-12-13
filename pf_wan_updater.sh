@@ -32,6 +32,6 @@ if [ $curwanip = $oldwanip ]; then
   exit # Nothing to do
 else
   # Send the email notification then update old IP
-  echo $message | /usr/local/bin/mail.php -s="$subject"
+  echo "$message" | /usr/local/bin/mail.php -s="$subject"
   echo $curwanip > /tmp/old_wan_ip
 fi
